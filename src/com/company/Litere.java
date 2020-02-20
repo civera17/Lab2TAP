@@ -3,34 +3,22 @@ package com.company;
 import java.util.List;
 
 public class Litere {
-    private int nr;
     private String litera;
     private String limba;
 
-    public Litere(int nr, String litera, String limba) {
-        this.nr = nr;
+    public Litere(String litera, String limba) {
         this.litera = litera;
         this.limba = limba;
     }
 
-    public Litere(int nr) {
-        this.nr = nr;
+    public Litere() {
         this.litera = "Unitialized";
         this.limba = "Unitialized";
     }
 
     public  Litere(String litera) {
-        this.nr = 0;
         this.litera = litera;
         this.limba =  "Unitialized";
-    }
-
-    public int getNr() {
-        return nr;
-    }
-
-    public void setNr(int nr) {
-        this.nr = nr;
     }
 
     public String getLitera() {
@@ -53,16 +41,18 @@ public class Litere {
         System.out.println("Reading litera" + getLitera());
     }
 
-    protected StringBuilder concatenate(Litere l1, Litere l2) {
-        StringBuilder temp = new StringBuilder();
-        temp.append(l1.getLitera());
-        temp.append(l2.getLitera());
-        return temp;
+    protected void consoanaSauVocala() {
+        String[] vocale = {"a", "e", "i", "o", "u", "ă", "î"};
+        for (String l: vocale) {
+            if (litera.equals(l)){
+                System.out.println("Este vocala");
+            } else {
+                System.out.println("Este consoana");
+            }
+        }
     }
 
     protected void className() {
         System.out.println("Class - Litere");
     }
-
-
 }

@@ -1,12 +1,20 @@
 package com.company;
 
-public class Cuvint extends Litere{
+public class Cuvint extends Litere {
 
     String cuvintul;
 
+    public Cuvint(String litera, String limba, String cuvintul) {
+        super(litera, limba);
+        this.cuvintul = cuvintul;
+    }
 
-    public Cuvint(int nr, String litera, String limba, String cuvintul) {
-        super(nr, litera, limba);
+    public Cuvint(String cuvintul) {
+        this.cuvintul = cuvintul;
+    }
+
+    public Cuvint(String litera, String cuvintul) {
+        super(litera);
         this.cuvintul = cuvintul;
     }
 
@@ -18,14 +26,29 @@ public class Cuvint extends Litere{
         this.cuvintul = cuvintul;
     }
 
+
     @Override
     protected void read() {
         super.read();
     }
 
+
     @Override
-    protected StringBuilder concatenate(Litere l1, Litere l2) {
-        return super.concatenate(l1, l2);
+    protected void consoanaSauVocala() {
+        char[] vocale = {'a', 'e', 'i', 'o', 'u', 'ă', 'î'};
+        char[] cuv = cuvintul.toLowerCase().toCharArray();
+        int vocCount = 0;
+        int consCount = 0;
+        for (int i = 0; i < cuv.length; i++) {
+            for (int j = 0; j < vocale.length; j++) {
+                if (cuv[i] == vocale[j]) {
+                    vocCount++;
+                }
+            }
+        }
+        consCount = cuv.length - vocCount;
+
+        System.out.println("Vocale = " + vocCount + "\nConsoane = " + consCount);
     }
 
     @Override
