@@ -29,7 +29,7 @@ public class Cuvint extends Litere {
 
     @Override
     protected void read() {
-        super.read();
+        System.out.println("Reading cuvint" + getCuvintul());
     }
 
 
@@ -53,6 +53,6 @@ public class Cuvint extends Litere {
 
     @Override
     protected void className() {
-        super.className();
+        System.out.println("Class = Cuvint");
     }
 }
